@@ -32,7 +32,7 @@ def get_elves_calories_each(list):
             index += 1
             continue
         
-        elves[index] = elves[index] + int(item);
+        elves[index] += int(item);
     
     return elves
 
@@ -44,6 +44,25 @@ def find_most_calories(elves):
             most_calories = elf
     
     return most_calories
+
+def sort_elves(elves):
+    pass
+
+def top_elves_most_calories(elves, top_count):
+    top_elves = []
+
+    for elf in elves:
+        pass
+
+    return top_elves
+
+def get_total_calories(elves):
+    total_calories = 0
+
+    for elf in elves:
+        total_calories += elf
+    
+    return total_calories
 
 
 def display_answer():
