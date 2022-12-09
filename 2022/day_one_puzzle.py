@@ -79,8 +79,8 @@ def display_answer():
     utils.merge_sort(elves_calories, 0, elves_len - 1)
     top_elves = top_elves_most_calories(elves_calories, 3)
     top_elves_total_cals = get_total_calories(top_elves)
-    print("Example - Top Elves", top_elves)
-    print("Example - Top Elves Total Calories:", top_elves_total_cals)
+    print("Answer - Top Elves", top_elves)
+    print("Answer - Top Elves Total Calories:", top_elves_total_cals)
 
 parse_files()
 display_answer()
