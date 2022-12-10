@@ -13,10 +13,23 @@ shape_points = {"rock": 1, "paper": 2, "scissors": 3}
 shape_number = {"rock": 0, "paper": 1, "scissors": 2}
 opp_shape_letter = {'A': "rock", 'B': "paper", 'C': "scissors"}
 player_shape_letter = {'X': "rock", 'Y': "paper", 'Z': "scissors"}
+player_outcome_letter = {'X': "lose", 'Y': "draw", 'Z': "win"}
+
+rock_outcome_against_shape = {"win": "paper", "draw": "rock", "lose": "scissors"}
+paper_outcome_against_shape = {"win": "scissors", "draw": "paper", "lose": "rock"}
+scissors_outcome_against_shape = {"win": "rock", "draw": "scissors", "lose": "paper"}
 
 def parse_files():
     utils.parse_file(example_input_fname, example_input_list)
     utils.parse_file(input_fname, input_list)
+
+def choose_shape_for_outcome(opp_shape, desired_outcome):
+    if opp_shape == "rock":
+        return rock_outcome_against_shape[desired_outcome];
+    elif opp_shape == "paper":
+        return paper_outcome_against_shape[desired_outcome];
+    elif opp_shape == "scissors":
+        return scissors_outcome_against_shape[desired_outcome];
 
 def points_for_outcome(opp_shape, player_shape):
     player = shape_number[player_shape]
@@ -31,8 +44,11 @@ def points_for_outcome(opp_shape, player_shape):
 
 def points_for_round(round_input):
     opp_shape = opp_shape_letter[round_input[0]]
-    player_shape = player_shape_letter[round_input[2]]
-
+    # player_shape = player_shape_letter[round_input[2]]
+    
+    player_desired_outcome = player_outcome_letter[round_input[2]]
+    player_shape = choose_shape_for_outcome(opp_shape, player_desired_outcome)
+    
     points = shape_points[player_shape]
     points += points_for_outcome(opp_shape, player_shape)
 
