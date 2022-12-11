@@ -8,6 +8,16 @@ def parse_file(file_name, output):
 
     file.close()
 
+def return_file_output(file_name):
+    output = ""
+    file = open(file_name, "r")
+
+    for line in file:
+        output += line
+    
+    file.close()
+    return output
+
 # Merge Sort algorithm
 def merge(arr, left, mid, right):
     left_length = mid - left + 1
